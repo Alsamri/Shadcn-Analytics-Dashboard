@@ -21,6 +21,7 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
@@ -98,6 +99,9 @@ const AppSidebar = () => {
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
+                  {item.title === "Inbox" && (
+                    <SidebarMenuBadge>24</SidebarMenuBadge>
+                  )}
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
@@ -111,7 +115,20 @@ const AppSidebar = () => {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild></SidebarMenuButton>
+                <SidebarMenuButton asChild>
+                  <Link href={"/"}>
+                    <Projector />
+                    See All Projects
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href={"/"}>
+                    <Plus />
+                    Add Project
+                  </Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
