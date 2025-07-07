@@ -8,7 +8,14 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import {
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 const chartConfig = {
   desktop: {
@@ -29,12 +36,12 @@ const chartData = [
   { month: "June", desktop: 214, mobile: 140 },
 ];
 
-const AppBarChart = () => {
+const AppAreaChart = () => {
   return (
     <div>
-      <h1 className="text-lg font-medium mb-6">Total Revenue</h1>
+      <h1 className="text-lg font-medium mb-6">Total Visitors</h1>
       <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-        <BarChart accessibilityLayer data={chartData}>
+        <AreaChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis
             dataKey="month"
@@ -45,13 +52,13 @@ const AppBarChart = () => {
           />
           <YAxis tickLine={false} tickMargin={10} axisLine={false} />
           <ChartTooltip content={<ChartTooltipContent />} />
-          <ChartLegend content={<ChartLegendContent />} />
+
           <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
           <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-        </BarChart>
+        </AreaChart>
       </ChartContainer>
     </div>
   );
 };
 
-export default AppBarChart;
+export default AppAreaChart;
